@@ -2,6 +2,8 @@
 
 This project implements embedded software and AI detection for a **5 Degrees of Freedom (DOF) robotic arm** controlled by an STM32F407 microcontroller. The goal is to enable the arm to autonomously **track** a designated object and **position itself** at a precise target distance using a **sensor fusion** approach.
 
+I shared two versions, one made with functions and the other made with freeRTOS.
+
 ## 💡 Project Goal
 
 The primary objective is to use **Image Processing (Camera)** data to lock the arm's horizontal (Pan) and vertical (Tilt) axes onto the target, while simultaneously using data from an **Ultrasonic Distance Sensor** to control the arm's reach (Proximity) to maintain a fixed distance (e.g., 5 cm) from the object.
