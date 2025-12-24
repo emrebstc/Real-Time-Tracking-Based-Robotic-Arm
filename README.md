@@ -1,16 +1,16 @@
-# 🎯 STM32 Sensor Fusion Robotic Arm Control (Real-Time Object Tracking)
+#  STM32 Sensor Fusion Robotic Arm Control (Real-Time Object Tracking)
 
 This project implements embedded software and AI detection for a **5 Degrees of Freedom (DOF) robotic arm** controlled by an STM32F407 microcontroller. The goal is to enable the arm to autonomously **track** a designated object and **position itself** at a precise target distance using a **sensor fusion** approach.
 
 I shared two versions, one made with functions and the other made with freeRTOS.
 
-## 💡 Project Goal
+##  Project Goal
 
 * It is a project based on embedded systems and artificial intelligence, designed to understand freeRTOS and various algorithms. It is a project designed for learning purposes, and the main purpose is to create a project that uses all these systems together.
 
 * The primary goal is to lock the arm's horizontal (pan) and vertical (tilt) axes onto the target using image processing (camera) data, while simultaneously maintaining a constant distance (e.g., 5 cm) from the object by controlling the arm's reach (proximity) using data from the ultrasonic distance sensor. In this way, the robotic arm attempts to reach the target and perform the gripping motion. After detecting the center point of the target, it begins the necessary movements to reach it.
 
-## ✨ Key Control Mechanisms
+##  Key Control Mechanisms
 
 The control is executed in the main loop using **non-blocking, step-by-step** functions with interrupts that continuously adjust the servo angles based on error feedback.
 * **Primary Goal**	To autonomously lock the arm onto a target using Vision (DX/DY) and maintain a set distance using Ultrasonic Sensor data.	STM32F4, Raspberry Pi 5
@@ -18,14 +18,14 @@ The control is executed in the main loop using **non-blocking, step-by-step** fu
 * **Vision Role**	Runs Python/YOLOv8n to detect the target, calculate DX/DY coordinates, and transmit them via UART.	Raspberry Pi 5
 * **Control Role**	Consumes DX/DY and raw distance data to generate precise PWM signals for the servos.	STM32F407VGT6
 
-## ⚙️ Implementation Details
+##  Implementation Details
 
 * **Control Type:** Incremental movement control (smooth stepping). Movement speed scales with the size of the error.
 * **Input:** Camera (Receiving DX, DY coordinates via UART) and Ultrasonic Sensor (TIM Input Capture).
 * **Output:** PWM control for the Servo motors.
 * **Software:** Developed using C and Python languages also with STM32 HAL Drivers.
 
-## 🛠️ Hardware and Tools Used
+##  Hardware and Tools Used
 
 This project involves a sensor fusion architecture, utilizing the processing power of a single-board computer for vision and a microcontroller for precise motor control. 
 
